@@ -54,7 +54,7 @@
                     result = num1 * num2;
                     break;
                 case '/':
-                    result = num2 != 0 ? num1 / num2 : "<div class='text-danger'>Can't Divide by Zero</div>";
+                    result = num2 !== 0 ? num1 / num2 : "<div class='text-danger'>Can't Divide by Zero</div>";
                     break;
             }
             ans.innerHTML = `<h6 style="color: #00FF00;">Result: ${result}</h6>`;

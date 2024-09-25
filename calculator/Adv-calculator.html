@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Basic Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .cal-container{
+            border: 3px solid #007bff;
+            box-shadow: 0 30px 40px rgba(0, 0, 0, 0.538);
+        }
+    </style>
+</head>
+
+  <body>
+    <div class="container mt-5 d-flex flex-column " style="width: 500px;">
+        <div class="cal-container p-5 bg-dark text-white">
+            <h2 class="text-center text-primary">Advance Calculator</h2>
+            <div class="form-group py-4">
+                <label>Enter Expression: </label>
+                <input type="text" id="input" class="form-control" placeholder="e.g, 1+3-6*2+6/3-2">
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary m-2 rounded" onclick="calculate()">Get Result</button>
+            </div>
+            <div id="result" class="mt-3 text-center"></div>
+        </div>
+    </div>
+    <script>
+        function calculate(){
+            const input = document.getElementById('input').value;
+            const ans = document.getElementById('result');
+            ans.innerHTML = ''
+            if (input === ''){
+                ans.innerHTML = `<h6 class='text-danger'>Please Enter a Valid Expression</h6>`;
+                return;
+            }
+            try{
+                const result = eval(input);
+                ans.innerHTML = `<h6 style="color: #00FF00;">Result: ${result}</h6>`
+            }
+            catch(error){
+                ans.innerHTML = `<h6 class='text-danger'>Invalid Expression!</h6>`
+            }
+        }
+    </script>
+  </body>
+</html>
